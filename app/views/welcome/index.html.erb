@@ -2,5 +2,5 @@
 <h1>These are the Schools. With stats! </h1>
 
 <% @schools.each do |school| %>
-  <p> <%= link_to "#{school.name}", school %> | Teachers: <%= school.teachers.count%> | Enrollees: <%= school.students.count %> </p>
+  <p> <%= link_to "#{school.name}", school %> | Teachers: <%= school.teacher_count%> | Enrollees: <%= school.student_count %> </p>
 <% end %>
