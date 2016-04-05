@@ -1,6 +1,6 @@
 
-<h1>These are the Schools</h1>
+<h1>These are the Schools. With stats! </h1>
 
 <% @schools.each do |school| %>
-  <p> <%= school.name %> | <%= school.mascot%> | <%= school.address %> </p>
+  <p> <%= link_to "#{school.name}", school %> | Teachers: <%= school.teachers.count%> | Enrollees: <%= school.students.count %> </p>
 <% end %>

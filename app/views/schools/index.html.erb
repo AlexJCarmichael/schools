@@ -1,0 +1,9 @@
+
+<h1>These are the Schools</h1>
+
+<h4><%= link_to "Is there a new school you would like to add?", new_school_path %></h4>
+
+<% @schools.each do |school| %>
+  <p> <%= link_to "#{school.name}", school %> | <%= school.mascot%> | <%= school.address %> </p>
+  <%= link_to "Edit", edit_school_path(school) %> <%= link_to "Delete", school_path(school), method: :delete %>
+<% end %>
