@@ -20,7 +20,7 @@
     <div>
       <%= f.label :teacher_id%>
         <% if params[:action] == "edit" %>
-          <%= f.collection_select(:teacher_id, Teacher.all, :id, :name, {}, disabled: true) %>
+          <%= f.collection_select(:teacher_id, Teacher.all, :id, :last_name, {}, disabled: true) %>
         <% else %>
           <%= f.collection_select(:teacher_id, Teacher.all, :id, :last_name) %>
         <% end %>
