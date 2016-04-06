@@ -10,7 +10,4 @@ class School < ActiveRecord::Base
     students.count
   end
 
-  def teacher_list
-    Teacher.where("school_id = #{self.id}")
-  end
 end
