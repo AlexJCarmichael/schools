@@ -4,3 +4,7 @@
 <% @schools.each do |school| %>
   <p> <%= link_to "#{school.name}", school %> | Teachers: <%= school.teacher_count%> | Enrollees: <%= school.student_count %> </p>
 <% end %>
+
+<%content_for :pagination do %>
+  <%= paginate @schools %>
+<% end %>

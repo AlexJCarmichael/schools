@@ -8,4 +8,6 @@
     | Address <%= teacher.address %> | Age: <%= teacher.age %> | Student count: <%= teacher.students.count %></p>
 <% end %>
 
-<%= paginate @teachers %>
+<%content_for :pagination do %>
+  <%= paginate @teachers %>
+<% end %>
