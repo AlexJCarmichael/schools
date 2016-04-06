@@ -1,17 +1,32 @@
 
-  <%= form_for(@student, class: 'form') do |f| %>
+<%= form_for(@student, class: 'form') do |f| %>
+<div>
+  <div>
     <%= f.label :first_name %>
     <%= f.text_field :first_name  %>
-
+  </div>
+  <div>
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
-
+  </div>
+  <div>
     <%= f.label :address %>
     <%= f.text_field :address %>
-
+  </div>
+  <div>
     <%= f.label :age %>
     <%= f.number_field :age %>
-
-    <%= f.submit %>
-
-  <% end %>
+  </div>
+    <div>
+      <%= f.label :teacher_id%>
+        <% if params[:action] == "edit" %>
+          <%= f.collection_select(:teacher_id, Teacher.all, :id, :name, {}, disabled: true) %>
+        <% else %>
+          <%= f.collection_select(:teacher_id, Teacher.all, :id, :last_name) %>
+        <% end %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

@@ -1,17 +1,32 @@
 
   <%= form_for(@teacher, class: 'form') do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name  %>
-
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-
-    <%= f.label :age %>
-    <%= f.number_field :age %>
-
-    <%= f.submit %>
-
+  <div>
+    <div>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name  %>
+    </div>
+    <div>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+    </div>
+    <div>
+      <%= f.label :age %>
+      <%= f.number_field :age %>
+    </div>
+      <div>
+        <%= f.label :school_id%>
+          <% if params[:action] == "edit" %>
+            <%= f.collection_select(:school_id, School.all, :id, :name, {}, disabled: true) %>
+          <% else %>
+            <%= f.collection_select(:school_id, School.all, :id, :name) %>
+          <% end %>
+      </div>
+      <div>
+        <%= f.submit %>
+      </div>
+    </div>
   <% end %>

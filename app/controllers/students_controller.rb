@@ -27,6 +27,8 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
+    teacher = Teacher.find(@student.teacher_id)
+    @student.school_id = teacher.school_id
 
     if @student.save
       redirect_to @student
@@ -51,6 +53,6 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :address, :age)
+    params.require(:student).permit(:first_name, :last_name, :address, :age, :teacher_id)
   end
 end
