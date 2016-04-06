@@ -1,0 +1,9 @@
+
+<h1>These are the Students!.</h1>
+
+<% @students.each do |student| %>
+  <p> <%= link_to "#{student.id}", student %> | First name: <%= student.first_name %> | Last name: <%= student.last_name %>
+    | Address <%= student.address %> | Age: <%= student.age %> </p>
+<% end %>
+
+<%= paginate @students %>

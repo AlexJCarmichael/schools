@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
   def index
-    @schools = School.order(:name).page params[:page]
+    @schools = School.order(:id).page params[:page]
   end
 
   def show
