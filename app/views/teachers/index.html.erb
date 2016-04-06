@@ -1,7 +1,8 @@
 
 <h1>These are the Teahcers!</h1>
-
-<h4><%= link_to "Is there a new teacher you would like to add?", new_teacher_path %></h4>
+<% if signed_in? %>
+  <h4><%= link_to "Is there a new teacher to add?", new_teacher_path, class: "waves-effect waves-light btn" %></h4>
+<% end %>
 
 <% @teachers.each do |teacher| %>
   <p> <%= link_to "#{teacher.id}", teacher %> | First name: <%= teacher.first_name %> | Last name: <%= teacher.last_name %>

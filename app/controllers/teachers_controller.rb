@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  skip_before_action :authenticate_user, only: [:show, :index]
   def index
     @teachers = Teacher.order(:id).page params[:page]
   end

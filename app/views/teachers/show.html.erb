@@ -3,8 +3,10 @@
 
 <h4><%= link_to "#{@teacher.id}", @teacher %> | First name: <%= @teacher.first_name %> | Last name: <%= @teacher.last_name %>
   | Address <%= @teacher.address %> | Age: <%= @teacher.age %></h4>
-  <%= link_to "Edit", edit_teacher_path(@teacher), class: "waves-effect waves-light btn" %> <%= link_to "Delete", teacher_path(@teacher), method: :delete, data: { confirm: "Are you sure you want to delete this teacher?
+  <% if signed_in? %>
+    <%= link_to "Edit", edit_teacher_path(@teacher), class: "waves-effect waves-light btn" %> <%= link_to "Delete", teacher_path(@teacher), method: :delete, data: { confirm: "Are you sure you want to delete this teacher?
                                                                                                                             (All students associated to this teacher will be deleted)" }, class: "delete btn" %>
+  <% end %>
 
   <div class="container">
     <h5>Students belonging to <%= @teacher.first_name %> <%= @teacher.last_name %></h5>
