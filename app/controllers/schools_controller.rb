@@ -50,8 +50,4 @@ class SchoolsController < ApplicationController
   def get_school
     School.find(params.fetch(:id))
   end
-
-  def school_params
-    params.require(:school).permit(:name, :mascot, :address)
-  end
 end
