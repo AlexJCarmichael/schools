@@ -16,7 +16,7 @@ class Api::SchoolsController < ApplicationController
     school = School.create!(name: params[:name], mascot: params[:mascot], address: params[:address])
     render json: school
   rescue ActiveRecord::RecordInvalid
-    render json: { message: "Bad request", status: 400 }, status: 400
+    render json: { message: "Bad request, need all paramaters", status: 400 }, status: 400
   end
 
   def update
@@ -25,7 +25,7 @@ class Api::SchoolsController < ApplicationController
     school.save!
     render json: school
   rescue ActiveRecord::RecordInvalid
-    render json: { message: "Bad request", status: 400 }, status: 400
+    render json: { message: "Bad request, need all paramaters", status: 400 }, status: 400
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
   end

@@ -15,7 +15,7 @@ class Api::TeachersController < ApplicationController
     teacher = Teacher.create!(first_name: params[:first_name], last_name: params[:last_name], address: params[:address], age: params[:age])
     render json: teacher
   rescue ActiveRecord::RecordInvalid
-    render json: { message: "Bad request", status: 400 }, status: 400
+    render json: { message: "Bad request, need all paramaters", status: 400 }, status: 400
   end
 
   def update
@@ -24,7 +24,7 @@ class Api::TeachersController < ApplicationController
     teacher.save!
     render json: teacher
   rescue ActiveRecord::RecordInvalid
-    render json: { message: "Bad request", status: 400 }, status: 400
+    render json: { message: "Bad request, need all paramaters", status: 400 }, status: 400
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
   end
